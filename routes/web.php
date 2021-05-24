@@ -29,21 +29,34 @@ Route::group(array('namespace' => 'App\Http\Controllers\Auth'),function(){
 	Route::get('register-payment-info', 'RegisterRestaurantController@RegisterpaymentInfo')->name('register-payment-info');
 
 	Route::get('register-activation', 'RegisterRestaurantController@RegisterActivation')->name('register-activation');
+
+	Route::post('post-register-restaurant', 'RegisterRestaurantController@PostRegisterRestaurant')->name('post-register-restaurant');
+
+	Route::post('post-register-select-package', 'RegisterRestaurantController@PostRegisterSelectPackage')->name('post-register-select-package');
+
+	Route::post('post-register-payment-info', 'RegisterRestaurantController@PostRegisterPaymentInfo')->name('post-register-payment-info');
+});
+
+Route::group(array('namespace' => 'App\Http\Controllers'),function(){
+	Route::post('getStateByCountry', 'CommonController@GetStateByCountry')->name('GetStateByCountry');
+	Route::post('getCityByState', 'CommonController@GetCityByState')->name('GetCityByState');
+	Route::get('logout', 'CommonController@logout')->name('logout');
 });
 
 Route::get('my-restaurant', function () {
     return view('web.v1.front.restaurant.myRestaurant');
-});
+})->name('my-restaurant');
 
 Route::get('restaurant-dashboard', function () {
     return view('web.v1.front.restaurant.dashboard');
-});
+})->name('restaurant-dashboard');
 
 Route::get('restaurant-menu-builder', function () {
     return view('web.v1.front.restaurant.restaurantMenuBuilder');
-});
+})->name('restaurant-menu-builder');
 
 
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

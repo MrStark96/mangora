@@ -14,7 +14,7 @@
                   <div class="main-nav">
                      <nav id="site-navigation" class="main-navigation">
                         <ul>
-                           <li><a href="listings.html">Restaurants</a></li>
+                           <li><a href="">Restaurants</a></li>
                         </ul>
                      </nav>
                      <!-- .main-navigation -->
@@ -26,9 +26,14 @@
                             <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>{{ __('web.English') }}</option>
                             <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>{{ __('web.France') }}</option>
                         </select>
-                     <a class="cs-color cs-popup-joinus-btn login-popup" data-target="#sign-in" data-toggle="modal" href="#user-register">Login / Register</a><a class="get-start-btn" href="register-restaurant.html">
+                     @guest
+                        <a class="cs-color cs-popup-joinus-btn login-popup" style="color:white" data-target="#sign-in" data-toggle="modal" href="#user-register">Login / Register</a><a class="get-start-btn" href="{{route('register-restaurant')}}">
                      Register
                      Restaurant </a>
+                        @endguest
+                        @auth
+                           <a href="{{ route('logout') }}" style="color:white" class="foodbakery-dev-login-box-btn forgot-switch">Logout</a>
+                        @endauth
                   </div>
                </div>
             </div>

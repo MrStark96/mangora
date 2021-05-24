@@ -9,23 +9,25 @@
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">×</span>
 								</button>
-								<h5 class="modal-title foodbakery-dev-login-main-title">Login To Your Account</h5>
+								<h5 class="modal-title foodbakery-dev-login-main-title">
+								Login To Your Account</h5>
 							</div>
 							<div class="modal-body">
 								<p class="foodbakery-dev-login-top-msg"></p>
 								<div class="cs-login-pbox">
 									<div class="status status-message"></div>
-									<form method="post" class="wp-user-form webkit" id="ControlForm_43687">
+									<form method="POST" action="{{ route('login') }}">
+                        			@csrf
 										<div class="cs-demo-login">
 											<div class="cs-demo-login-lable text-color">Click to login with Demo User
 											</div>
 											<div class="clearfix"></div>
 											<ul class="login-switches">
 												<li>
-													<a href="restaurant-dashboard.html" class="btn-red demo-publisher-user"><i class="icon-food"></i> Restaurant</a>
+													<a href="" class="btn-red demo-publisher-user"><i class="icon-food"></i> Restaurant</a>
 												</li>
 												<li>
-													<a href="buyer-dashboard.html" class="btn-red btn-green demo-buyer-user"><i class="icon-user4"></i> Buyer</a>
+													<a href="" class="btn-red btn-green demo-buyer-user"><i class="icon-user4"></i> Buyer</a>
 												</li>
 											</ul>
 										</div>
@@ -42,7 +44,7 @@
 										</div>
 										<div class="input-filed input-field-btn">
 											<div class="ajax-login-button input-button-loader">
-												<input type="button" class="cs-bgcolor" value="Log in">
+												<input type="submit" class="cs-bgcolor" value="Log in">
 											</div>
 										</div>
 									</form>
@@ -50,7 +52,7 @@
 										New Here?
 										<a data-toggle="tab" href="#user-register" class="foodbakery-dev-login-box-btn forgot-switch">Signup</a>
 									</div>
-									<div class="footer-element comment-form-social-connect social_login_ui ">
+									<!-- <div class="footer-element comment-form-social-connect social_login_ui ">
 										<div class="social-media">
 											<h6><span>Login with</span></h6>
 											<ul>
@@ -59,7 +61,7 @@
 												<li><a href="#" rel="nofollow" title="google-plus" data-original-title="google+" class="social_login_login_google gplus"><span class="social-mess-top gplus-social-login" style="display:none">Please set API key</span><i class="icon-google4"></i>Sign In With Google</a></li>
 											</ul>
 										</div>
-									</div>
+									</div> -->
 								</div>
 							</div>
 						</div>

@@ -16,7 +16,8 @@
                                         <li><a href="register-activation.html" class="cond-restaurant-settings1">Activation</a></li>
                                     </ul>
                                     <div id="restaurant-sets-holder">
-                                        <form class="form-fields-set foodbakery-dev-restaurant-form" method="post" action="register-activation.html">
+                                        <form class="form-fields-set" method="post" action="{{route('post-register-payment-info')}}">
+                                            {{ csrf_field() }}
                                             <ul id="foodbakery-dev-main-con-12331647" class="register-add-restaurant-tab-container payment-information-tab-container">
                                                 <li>
                                                     <div class="row">
@@ -76,7 +77,7 @@
                                                                                         <ul class="payment-list row">
                                                                                             <li class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                                                                 <div class="payment-box">
-                                                                                                    <input type="radio" id="foodbakery_paypal_gateway_7284823" checked="checked" name="foodbakery_restaurant_gateway" value="FOODBAKERY_PAYPAL_GATEWAY">
+                                                                                                    <input type="radio" id="foodbakery_paypal_gateway_7284823" checked="checked" name="payment_method" value="0">
                                                                                                     <label for="foodbakery_paypal_gateway_7284823"><img alt="" src="assets/extra-images/Paypal.png"></label>
                                                                                                     <span>Pay with
                                                                                                         Paypal</span>
@@ -84,26 +85,10 @@
                                                                                             </li>
                                                                                             <li class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                                                                 <div class="payment-box">
-                                                                                                    <input type="radio" id="foodbakery_authorizedotnet_gateway_8257993" name="foodbakery_restaurant_gateway" value="FOODBAKERY_AUTHORIZEDOTNET_GATEWAY">
+                                                                                                    <input type="radio" id="foodbakery_authorizedotnet_gateway_8257993" name="payment_method" value="1">
                                                                                                     <label for="foodbakery_authorizedotnet_gateway_8257993"><img alt="" src="assets/extra-images/Authorize.net_.png"></label>
                                                                                                     <span>Pay with
                                                                                                         Authorize.net</span>
-                                                                                                </div>
-                                                                                            </li>
-                                                                                            <li class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                                                <div class="payment-box">
-                                                                                                    <input type="radio" id="foodbakery_pre_bank_transfer_9499784" name="foodbakery_restaurant_gateway" value="FOODBAKERY_PRE_BANK_TRANSFER">
-                                                                                                    <label for="foodbakery_pre_bank_transfer_9499784"><img alt="" src="assets/extra-images/Bank-Transfer.png"></label>
-                                                                                                    <span>Pay with Pre Bank
-                                                                                                        Transfer</span>
-                                                                                                </div>
-                                                                                            </li>
-                                                                                            <li class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                                                                <div class="payment-box">
-                                                                                                    <input type="radio" id="foodbakery_skrill_gateway_8930496" name="foodbakery_restaurant_gateway" value="FOODBAKERY_SKRILL_GATEWAY">
-                                                                                                    <label for="foodbakery_skrill_gateway_8930496"><img alt="" src="assets/extra-images/Skrill.png"></label>
-                                                                                                    <span>Pay with
-                                                                                                        Skrill-MoneyBooker</span>
                                                                                                 </div>
                                                                                             </li>
                                                                                         </ul>
@@ -131,3 +116,15 @@
         </div>
         <!-- Main Section End -->
 @endsection
+@push('script')
+<script type="text/javascript">
+    $(document).on("click","#btn-back-payment-information",function(e){
+        e.preventDefault();
+        window.history.back();
+    });
+    $(document).on("click","#btn-next-package",function(e){
+        e.preventDefault();
+        $('.form-fields-set')[0].submit();
+    });
+</script>
+@endpush

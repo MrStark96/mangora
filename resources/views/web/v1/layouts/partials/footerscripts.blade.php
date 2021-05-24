@@ -15,6 +15,10 @@
 <script src="{{ URL::asset('assets/js/functions-plugin.js') }}"></script>
 <script src="{{ URL::asset('assets/js/functions.js') }}"></script>
 
+<!-- Validate -->
+<script src="{{ URL::asset('assets/js/jquery.validate.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/additional-methods.min.js') }}"></script>
+
 <script type="text/javascript">
     
 	    var url = "{{ route('changeLang') }}";
@@ -23,4 +27,5 @@
 	        window.location.href = url + "?lang="+ $(this).val();
 	    });
 	    
-	</script>
+</script>
+@stack('script')
